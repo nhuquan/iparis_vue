@@ -1,30 +1,65 @@
 <template>
   <div id="App">
     <div class="navbar-fixed">
-      <nav class="orange lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">I Pazi Shop</a>
+      <nav class="amber darken-1">
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+          <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">I Pazi Shop</a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="https://www.facebook.com/ipazishop/">Shop</a></li>
+            <li><a href="https://www.facebook.com/ipazishop/"><i class="material-icons">shopping_cart</i></a></li>
           </ul>
-
-          <ul id="nav-mobile" class="side-nav">
-            <li><a href="https://www.facebook.com/ipazishop/">Shop</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
+          </div>
       </nav>
     </div>
 
-    <div class="carousel carousel-slider center" data-indicators="true">
+    <!-- <div class="carousel carousel-slider center" data-indicators="true">
       <a class="carousel-item" href="javascript:void(0);"><img src="/static/1.jpg"></a>
       <a class="carousel-item" href="javascript:void(0);"><img src="/static/2.jpg"></a>
       <a class="carousel-item" href="javascript:void(0);"><img src="/static/3.jpg"></a>
+    </div> -->
+    <div class="slider slider-main">
+      <ul class="slides">
+        <li>
+          <img src="/static/1.jpg"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>This is our big Tagline!</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="/static/2.jpg"> <!-- random image -->
+          <div class="caption left-align">
+            <h3>Left Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="/static/3.jpg"> <!-- random image -->
+          <div class="caption right-align">
+            <h3>Right Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="/static/4.jpg"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>This is our big Tagline!</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="/static/5.jpg"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>This is our big Tagline!</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <router-view></router-view>
 
     <footer class="page-footer grey">
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Company Bio</h5>
@@ -37,7 +72,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="footer-copyright">
         <div class="container">
         Made by <a class="orange-text text-lighten-3"
@@ -46,7 +81,12 @@
       </div>
     </footer>
 
-
+    <ul id="slide-out" class="side-nav">
+      <li><div class="userView">
+        <a href="https://www.facebook.com/ipazishop/">Shop</a>
+      </div>
+      </li>
+    </ul>
 
   </div>
 </template>
@@ -56,10 +96,8 @@ export default {
   name: 'app',
   mounted: function(){
     console.log("mounted");
-    $('.carousel').carousel({
-      fullWidth: true,
-      dist: 0,
-    });
+    $('.slider-main').slider();
+    $('.button-collapse').sideNav();
   }
 }
 </script>

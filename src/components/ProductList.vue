@@ -11,9 +11,7 @@
                 </a>
              </div>
             <div class="card-content">
-              <!-- <span class="card-title activator grey-text text-darken-4">{{product.story}}<i class="material-icons right">more_vert</i></span>
-               -->
-              <p><a href="#modal1" class="btn waves-effect waves-light light-blue">More</a></p>
+              <p class="center" @click="setActiveProduct(product)"><a href="#modal1" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">info_outline</i></a></p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">{{product.story}}<i class="material-icons right">close</i></span>
@@ -26,13 +24,17 @@
        <a class="btn waves-effect waves-light orange" @click="previous()">Previous</a>
        <a class="btn waves-effect waves-light orange" @click="next()">Next</a>
     </div>
-    <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h4>{{activeProduct.story}}</h4>
-        <p>{{activeProduct.message}}</p>
+    <div  id="modal1" class="modal modal-fixed-footer">
+      <div v-if="activeProduct.attachments" class="modal-content">
+        <p class="flow-text">{{activeProduct.message}}</p>
+        <hr/>
+        <ul>
+         <li v-for="image in activeProduct.attachments.data[0].subattachments.data">
+           <img class="response-img" :src="image.media.image.src"/>
+         </li>
+        </ul>
       </div>
       <div class="modal-footer">
         <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
@@ -58,7 +60,9 @@ export default {
     }
   },
   mounted() {
-    $('.modal').modal();
+    $('.modal').modal({
+       startingTop: '40%',
+    });
   },
   created () {
     this.$store.dispatch('getAllProducts')

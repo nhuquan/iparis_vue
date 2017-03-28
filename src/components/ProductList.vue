@@ -20,19 +20,23 @@
           </div>
        </div>
      </div>
-     <div class="center-align">
-       <a class="btn waves-effect waves-light orange" @click="previous()">Previous</a>
-       <a class="btn waves-effect waves-light orange" @click="next()">Next</a>
+     <div class="card-panel purple lighten-5 center-align ">
+       <a class="btn waves-effect waves-light orange" @click="previous()"><i class="material-icons right">fast_rewind</i></a>
+       <a class="btn waves-effect waves-light orange" @click="next()"><i class="material-icons right">fast_forward</i></a>
     </div>
 
     <!-- Modal Structure -->
     <div  id="modal1" class="modal modal-fixed-footer">
       <div v-if="activeProduct.attachments" class="modal-content">
+        <img class="response-img" style="max-height: 100px;" :src="activeProduct.full_picture">
+
         <p class="flow-text">{{activeProduct.message}}</p>
         <hr/>
-        <ul>
+
+        <ul v-if="activeProduct.attachments.data[0].subattachments">
          <li v-for="image in activeProduct.attachments.data[0].subattachments.data">
-           <img class="response-img" :src="image.media.image.src"/>
+           <div class="center"><img class="response-img" :src="image.media.image.src"/>
+           </div>
          </li>
         </ul>
       </div>
@@ -57,15 +61,30 @@ export default {
       this.$store.dispatch('setActiveProduct', {
         product
       });
+    },
+    previous: function() {
+      console.log('previous');
+      this.$store.dispatch('previousProducts');
+    },
+    next: function() {
+      console.log('next');
+      this.$store.dispatch('nextProducts')
     }
   },
   mounted() {
-    $('.modal').modal({
-       startingTop: '40%',
-    });
+    $('.modal').modal();
   },
   created () {
     this.$store.dispatch('getAllProducts')
   }
 }
 </script>
+
+<style>
+.modal.modal-fixed-footer {
+   height: 85%;
+}
+.modal {
+  width: 80%;
+}
+</style>

@@ -13,11 +13,14 @@ export default {
         cb(response.data)
       })
   },
-  updateProducts(neUurl){
-    axios.get(newurl)
+  updateProducts(url, cb){
+    console.log('calling API for update')
+    axios.get(url)
       .then(function(response){
-        console.log('callback data', response)
+        console.log('update data', response)
         cb(response.data)
+      }, function(error) {
+        cb(false);
       })
   }
 }

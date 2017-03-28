@@ -11,47 +11,42 @@
       </nav>
     </div>
 
-    <!-- <div class="carousel carousel-slider center" data-indicators="true">
-      <a class="carousel-item" href="javascript:void(0);"><img src="/static/1.jpg"></a>
-      <a class="carousel-item" href="javascript:void(0);"><img src="/static/2.jpg"></a>
-      <a class="carousel-item" href="javascript:void(0);"><img src="/static/3.jpg"></a>
-    </div> -->
     <div class="slider slider-main">
       <ul class="slides">
         <li>
           <img src="/static/1.jpg"> <!-- random image -->
-          <div class="caption center-align">
+          <!-- <div class="caption center-align">
             <h3>This is our big Tagline!</h3>
             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
+          </div> -->
         </li>
         <li>
           <img src="/static/2.jpg"> <!-- random image -->
-          <div class="caption left-align">
+          <!-- <div class="caption left-align">
             <h3>Left Aligned Caption</h3>
             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
+          </div> -->
         </li>
         <li>
           <img src="/static/3.jpg"> <!-- random image -->
-          <div class="caption right-align">
+          <!-- <div class="caption right-align">
             <h3>Right Aligned Caption</h3>
             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
+          </div> -->
         </li>
         <li>
           <img src="/static/4.jpg"> <!-- random image -->
-          <div class="caption center-align">
+          <!-- <div class="caption center-align">
             <h3>This is our big Tagline!</h3>
             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
+          </div> -->
         </li>
         <li>
-          <img src="/static/5.jpg"> <!-- random image -->
-          <div class="caption center-align">
+          <img src="/static/5.jpg">
+          <!-- <div class="caption center-align">
             <h3>This is our big Tagline!</h3>
             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
+          </div> -->
         </li>
       </ul>
     </div>
@@ -59,20 +54,6 @@
     <router-view></router-view>
 
     <footer class="page-footer grey">
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Company Bio</h5>
-            <p class="grey-text text-lighten-4"></p>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Connect</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
       <div class="footer-copyright">
         <div class="container">
         Made by <a class="orange-text text-lighten-3"

@@ -4,7 +4,7 @@ import * as types from '../mutation-types'
 // initial state
 const state = {
   all: [],
-  activeProduct: {}
+  activeProduct: {},
 }
 
 // getters
@@ -21,8 +21,25 @@ const actions = {
     })
   },
   setActiveProduct({ commit }, {product}) {
-    console.log("action set product called", product);
     commit(types.SET_ACTIVE_PRODUCT, { product });
+  },
+  previousProducts({ commit }) {
+    shop.updateProducts(state.all.paging.previous, function(products) {
+      if (products && products.data && products.data.length > 0)
+        commit(types.RECEIVE_PRODUCTS, {products});
+      else {
+        console.log('empty data recevied, do nothing', products)
+      }
+    });
+  },
+  nextProducts({commit}) {
+    shop.updateProducts(state.all.paging.next, function(products) {
+      if (products && products.data && products.data.length > 0)
+        commit(types.RECEIVE_PRODUCTS, { products });
+      else {
+        console.log('empty data recevied, do nothing', products)
+      }
+    });
   }
 }
 
@@ -33,13 +50,8 @@ const mutations = {
   },
 
   SET_ACTIVE_PRODUCT (state, { product }) {
-    console.log("muation", product)
     state.activeProduct = product
   },
-  //
-  // [types.ADD_TO_CART] (state, { id }) {
-  //   state.all.find(p => p.id === id).inventory--
-  // }
 }
 
 export default {

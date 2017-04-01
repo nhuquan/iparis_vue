@@ -7,7 +7,7 @@
             <div class="card-image waves-effect waves-block waves-light"
               @click="setActiveProduct(product)">
                <a href="#modal1">
-                  <img class="response-img" style="height: 200px;" :src="product.full_picture">
+                  <img style="height: 200px;" :src="product.full_picture">
                 </a>
              </div>
             <div class="card-content">
@@ -30,8 +30,15 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal modal-fixed-footer">
       <div v-if="activeProduct.attachments" class="modal-content">
-        <img class="response-img" style="max-height: 100px;" :src="activeProduct.full_picture">
-        <p class="flow-text">{{activeProduct.message}}</p>
+        <div class="row">
+          <div class="col l8 m8 s12">
+            <p class="flow-text">{{activeProduct.message}}</p>
+          </div>
+          <div class="col l4 m4 s12">
+            <img class="responsive-img" :src="activeProduct.full_picture">
+          </div>
+
+        </div>
       </div>
       <div class="modal-footer">
         <a href="javascript:void(0);" @click="toProductPage()" class="modal-action orange waves-effect waves-green btn-flat "><i class="material-icons">play_arrow</i></a>

@@ -5,7 +5,7 @@
         <a class="btn waves-effect waves-light orange" @click="next()"><i class="material-icons right">fast_forward</i></a>
      </div>
      <div class="row">
-       <div v-if="product.message" class="col s12 m4 l2"
+       <div v-if="product.message" class="col s6 m4 l2"
        v-for="(product, index) in products.data">
           <div class="card hoverable sticky-action" style="overflow: hidden">
             <div class="card-image waves-effect waves-block waves-light"

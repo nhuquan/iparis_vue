@@ -2,8 +2,8 @@
   <div id="App">
     <div class="navbar-fixed">
       <nav class="amber darken-1">
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-          <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">I Pazi Shop</a>
+          <a href="/" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+          <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">I Pazi Shop</a>
           <ul class="right hide-on-med-and-down">
             <li><a href="https://www.facebook.com/ipazishop/"><i class="material-icons">shopping_cart</i></a></li>
           </ul>

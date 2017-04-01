@@ -17,9 +17,10 @@ export default new Router({
       path: '/',
       name: 'All Product',
       component: ProductList,
+      alias:'/home'
     },
     {
-      path: '/view/:id',
+      path: '/product',
       name: 'View Product',
       component: Product,
       props: true,

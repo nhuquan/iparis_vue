@@ -1,25 +1,22 @@
 <template>
-  <div class="NoteList u-absolute-flex-column">
-    <header class="app-header">APP_HEADER</header>
-    <ul class="u-scroller">
-      <li v-for="note in notes">
-        <a>
-          <i class="el-icon-arrow-right"></i>
-          <p class="note-title">NOTE_TITLE</p>
-          <p class="small">NOTE_META_DATA</p>
-        </a>
+  <div class="container">
+    <div class="card-panel">
+      <p class="flow-text">{{activeProduct.message}}</p>
+    </div>
+    <ul v-if="activeProduct.attachments.data[0].subattachments">
+      <li v-for="image in activeProduct.attachments.data[0].subattachments.data">
+        <div class="center"><img class="response-img" :src="image.media.image.src"/>
+        </div>
       </li>
     </ul>
-    <div class="app-controls">
-      <div class="u-flex-row">
-        <el-button type="primary" class="u-elastic">Add Note</el-button>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-
+  computed: mapGetters({
+    activeProduct: 'activeProduct'
+  }),
 }
 </script>

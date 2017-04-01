@@ -1,7 +1,7 @@
 <template>
     <div class="section">
      <div class="row">
-       <div v-if="product.message" class="col s12 m4 l2"
+       <div v-if="product.message" class="col s6 m4 l2"
        v-for="(product, index) in products.data">
           <div class="card hoverable sticky-action" style="overflow: hidden">
             <div class="card-image waves-effect waves-block waves-light"
@@ -28,23 +28,16 @@
     </div>
 
     <!-- Modal Structure -->
-    <div  id="modal1" class="modal modal-fixed-footer">
+    <div id="modal1" class="modal modal-fixed-footer">
       <div v-if="activeProduct.attachments" class="modal-content">
         <img class="response-img" style="max-height: 100px;" :src="activeProduct.full_picture">
-
         <p class="flow-text">{{activeProduct.message}}</p>
-        <hr/>
-
-        <ul v-if="activeProduct.attachments.data[0].subattachments">
-         <li v-for="image in activeProduct.attachments.data[0].subattachments.data">
-           <div class="center"><img class="response-img" :src="image.media.image.src"/>
-           </div>
-         </li>
-        </ul>
       </div>
       <div class="modal-footer">
-        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
-      </div>
+        <a href="javascript:void(0);" @click="toProductPage()" class="modal-action orange waves-effect waves-green btn-flat "><i class="material-icons">play_arrow</i></a>
+        <a href="javascript:void(0);">&nbsp;&nbsp;&nbsp;</a>
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat "><i class="material-icons">not_interested</i></a>
+        </div>
     </div>
 
    </div>
@@ -73,6 +66,13 @@ export default {
     previous: function() {
       console.log('previous');
       this.$store.dispatch('previousProducts');
+    },
+    toProductPage: function() {
+      console.log('going to product');
+      console.log($('#modal1'));
+      $('#modal1').modal('close');
+      this.$router.push({ path: 'product' });
+
     },
     next: function() {
       console.log('next');

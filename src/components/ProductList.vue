@@ -1,13 +1,17 @@
 <template>
     <div class="section">
+      <div class="card-panel center-align ">
+        <a class="btn waves-effect waves-light orange" @click="previous()"><i class="material-icons right">fast_rewind</i></a>
+        <a class="btn waves-effect waves-light orange" @click="next()"><i class="material-icons right">fast_forward</i></a>
+     </div>
      <div class="row">
-       <div v-if="product.message" class="col s6 m4 l2"
+       <div v-if="product.message" class="col s12 m4 l2"
        v-for="(product, index) in products.data">
           <div class="card hoverable sticky-action" style="overflow: hidden">
             <div class="card-image waves-effect waves-block waves-light"
               @click="setActiveProduct(product)">
                <a href="#modal1">
-                  <img style="height: 200px;" :src="product.full_picture">
+                  <img class="response-img" style="height: 200px;" :src="product.full_picture">
                 </a>
              </div>
             <div class="card-content">
@@ -37,12 +41,10 @@
           <div class="col l4 m4 s12">
             <img class="responsive-img" :src="activeProduct.full_picture">
           </div>
-
         </div>
       </div>
       <div class="modal-footer">
         <a href="javascript:void(0);" @click="toProductPage()" class="modal-action orange waves-effect waves-green btn-flat "><i class="material-icons">play_arrow</i></a>
-        <a href="javascript:void(0);">&nbsp;&nbsp;&nbsp;</a>
         <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat "><i class="material-icons">not_interested</i></a>
         </div>
     </div>

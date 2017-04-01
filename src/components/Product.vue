@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="card-panel row">
-        <div class="col l4 m4 s4">
-          <img class="responsive-img" :src="activeProduct.full_picture">
-        </div>
-        <div class="col l8 m8 s8">
-          <p class="flow-text">{{activeProduct.message}}</p>
-        </div>
+      <div class="col l8 m8 s12">
+        <p class="flow-text">{{activeProduct.message}}</p>
+      </div>
+      <div class="col l4 m4 s12">
+        <img class="responsive-img" :src="activeProduct.full_picture">
+      </div>
     </div>
 
     <ul v-if="activeProduct.attachments.data[0].subattachments">

@@ -3,7 +3,8 @@ import axios from 'axios'
 const token="1807850402870629|RG1qZf7asvkdXTA3yzb-4WGgxuU"
 const origin_url="https://graph.facebook.com/v2.8/ipazishop/posts?access_token=" + token
   + "&method=get"
-  + "&fields=['message', 'full_picture', 'icon', 'attachments', 'story']"
+  + "&fields=['message', 'full_picture', 'icon', 'attachments', 'created_time']"
+  + "&limit=24"
 
 export default {
   getProducts ( cb) {

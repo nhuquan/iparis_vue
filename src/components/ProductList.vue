@@ -1,7 +1,7 @@
 <template>
     <div class="section">
      <div class="row">
-       <div class="col s12 m4 l2"
+       <div v-if="product.message" class="col s12 m4 l2"
        v-for="(product, index) in products.data">
           <div class="card hoverable sticky-action" style="overflow: hidden">
             <div class="card-image waves-effect waves-block waves-light"
@@ -11,7 +11,9 @@
                 </a>
              </div>
             <div class="card-content">
-              <p class="center" @click="setActiveProduct(product)"><a href="#modal1" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">info_outline</i></a></p>
+              <p class="center" @click="setActiveProduct(product)"><a href="#modal1" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">info_outline</i></a>
+                <span class="dark-text">{{product.created_time | localDate}}</span>
+              </p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">{{product.story}}<i class="material-icons right">close</i></span>
@@ -20,7 +22,7 @@
           </div>
        </div>
      </div>
-     <div class="card-panel purple lighten-5 center-align ">
+     <div class="card-panel center-align ">
        <a class="btn waves-effect waves-light orange" @click="previous()"><i class="material-icons right">fast_rewind</i></a>
        <a class="btn waves-effect waves-light orange" @click="next()"><i class="material-icons right">fast_forward</i></a>
     </div>
@@ -55,6 +57,12 @@ export default {
     products: 'allProducts',
     activeProduct: 'activeProduct'
   }),
+  filters: {
+    localDate: function (date) {
+      console.log(typeof date);
+      return date.slice(0,10);
+    }
+  },
   methods: {
     setActiveProduct: function (product) {
       console.log("selected", product);

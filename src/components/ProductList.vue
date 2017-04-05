@@ -16,7 +16,9 @@
              </div>
             <div class="card-content">
               <p class="center" @click="setActiveProduct(product)"><a href="#modal1" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">info_outline</i></a>
-                <span class="dark-text">{{product.created_time | localDate}}</span>
+                <!-- <span class="dark-text">{{product.created_time | localDate}}</span> -->
+
+                <span class="dark-text">  {{price(product)}}</span>
               </p>
             </div>
             <div class="card-reveal">
@@ -55,13 +57,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  computed: mapGetters({
+  computed: {
+    ...mapGetters({
     products: 'allProducts',
     activeProduct: 'activeProduct'
-  }),
+    })
+  },
   filters: {
     localDate: function (date) {
-      console.log(typeof date);
       return date.slice(0,10);
     }
   },
@@ -71,6 +74,16 @@ export default {
       this.$store.dispatch('setActiveProduct', {
         product
       });
+    },
+    price: function(product) {
+      var result = ""
+      var myRef = /\d+k/
+      var myArr = myRef.exec(product.message);
+
+      if (myArr)
+        result = myArr[0]
+        //result = myArr[0].slice(myArr[0].lastIndexOf(":") + 1, myArr[0].lastIndexOf('k') + 1)
+      return result
     },
     previous: function() {
       console.log('previous');
